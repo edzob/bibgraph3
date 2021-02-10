@@ -1,0 +1,6 @@
+bibtexparser==1.2.0
+decorator==4.4.2
+future==0.18.2
+networkx==2.5
+pydot==1.4.1
+pyparsing==2.4.7
