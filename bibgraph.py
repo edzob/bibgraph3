@@ -18,7 +18,7 @@ def unpack(citationString):
 
 def quick_stats(bibtex):
     stats = Counter()
-    for key, entry in bibtex.entries_dict.iteritems():
+    for key, entry in bibtex.entries_dict.items():
         tag = entry.get('tags')
         if tag:
             newtag = ''
@@ -39,13 +39,13 @@ def main():
         bibtex = bibtexparser.load(bibtex_file)
 
     stats = quick_stats(bibtex)
-    for k,v in stats.iteritems():
-        print "{0:>5} --> {1:}".format(v, k)
+    for k,v in stats.items():
+        print("{0:>5} --> {1:}".format(v, k))
 
     citations = {}
     tags = {}
 
-    for key, entry in bibtex.entries_dict.iteritems():
+    for key, entry in bibtex.entries_dict.items():
         cites = entry.get('cites')
         if cites:
             citations[key] = unpack(cites)
@@ -54,11 +54,11 @@ def main():
             tags[key] = t
 
     G = nx.DiGraph()
-    for key, entry in citations.iteritems():
+    for key, entry in citations.items():
         for cit in entry:
             G.add_edge(key, cit)
 
-    pydot_G = nx.to_pydot(G)
+    pydot_G = nx.nx_pydot.to_pydot(G)
     for node in pydot_G.get_nodes():
         t = node.get_name()
         if t and tags.get(t):
