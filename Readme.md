@@ -45,17 +45,15 @@ progress` and `mapped`:
 
 ## Requires
 
-1. `graphviz` - get with `apt-get install graphviz`
+1. `graphviz` - get with `apt-get install graphviz` (or `brew install graphviz` if you're on a Mac)
 
-2. `python2.7` - if it's not there - __REALLY?!__
+2. `python3.8` - (this is the version I tested with; earlier versions of python3.X may also work)
 
-3. `pip` - get with `apt-get install pip`
-
-4. Some python packages: `pip install bibtexparser pydot2 networkx`
+3. Some python packages: `pip3 install -r requirements.txt`
 
 ## Running
 
-`python bibgraph.py /path/to/your/bibliography.bib`
+`python3 bibgraph.py /path/to/your/bibliography.bib`
 
 This produces a `bib.png` file a the bibliography graph like the one below.
 
