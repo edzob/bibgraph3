@@ -13,7 +13,8 @@ TAG_MAP = {
         'r': 'read'}
 
 def unpack(citationString):
-    return [s.strip() for s in citationString.split(',')]
+    keys_cited = [s.strip() for s in citationString.split(',')]
+    return keys_cited
 
 
 def quick_stats(bibtex):
@@ -32,8 +33,11 @@ def quick_stats(bibtex):
 #   r, i, t - read, in progress, to read
 #   m - maps/includes all (relevant) work citing this node at the time of writing
 
-def main():
+
+if __name__ == '__main__':
+    
     bibfile = sys.argv[1]
+    print(f"Bibfile is {bibfile}")
 
     with open(bibfile) as bibtex_file:
         bibtex = bibtexparser.load(bibtex_file)
@@ -69,8 +73,5 @@ def main():
     pydot_G.write('bib.dot')
 
     call(["gvpr -c -f filter.gvpr bib.dot > bib_nice.dot"], shell=True)
+
     call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpng -n2 -o bib.png"], shell=True)
-
-
-if __name__ == '__main__':
-    main()
