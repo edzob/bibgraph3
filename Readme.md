@@ -51,6 +51,10 @@ progress` and `mapped`:
 
 3. Some python packages: `pip3 install -r requirements.txt`
 
+## Helpful hints
+
+- Bibgraph3 relies on `bibtexparser` which only supports BibTeX entry types; not the full set available in BibLaTeX. For example, `@techreport` is supported while `@report` is not. This can be a pain to figure out because it fails silently, so I thought I'd mention it here.
+
 ## Running
 
 `python3 bibgraph.py /path/to/your/bibliography.bib`
