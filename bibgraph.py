@@ -74,4 +74,4 @@ if __name__ == '__main__':
 
     call(["gvpr -c -f filter.gvpr bib.dot > bib_nice.dot"], shell=True)
 
-    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpdf -n -o bib.pdf"], shell=True)
+    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpdf -n2 -o bib.pdf"], shell=True)
