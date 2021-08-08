@@ -3,8 +3,6 @@
 `bibgraph` builds a citation graph from an _annotated_ bibtex file.
 
 
-[[_TOC_]]
-
 
 ## Build a graph
 Bibgraph expects to find the following optional fields:
