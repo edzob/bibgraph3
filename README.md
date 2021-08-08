@@ -94,3 +94,8 @@ The script can read bibtex entries without tags.
 This produces a `bib.png` and a `bib.pdf` file a the bibliography graph like the one below.
 
 ![Example bibgraph](/bib.png?raw=true "Example bibgraph")
+
+## Contributors
+Orginal script - https://github.com/paul-g/bibgraph/
+Orginal python3 script - https://github.com/lissonc/bibgraph3
+Adjustments - 
