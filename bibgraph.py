@@ -1,4 +1,6 @@
 import sys
+import datetime
+
 import bibtexparser
 import networkx as nx
 import pydot
@@ -62,6 +64,10 @@ if __name__ == '__main__':
         for cit in entry:
             G.add_edge(key, cit)
 
+    # https://github.com/kavonjon/bibgraph/ 
+    ## fix for networkX 2
+    #pydot_G = nx.drawing.nx_pydot.to_pydot(G)
+
     pydot_G = nx.nx_pydot.to_pydot(G)
     for node in pydot_G.get_nodes():
         t = node.get_name()
@@ -72,6 +78,12 @@ if __name__ == '__main__':
     pydot_G.set('style', 'dashed')
     pydot_G.write('bib.dot')
 
-    call(["gvpr -c -f filter.gvpr bib.dot > bib_nice.dot"], shell=True)
+    yymmddhhss   = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+    png_filename = "bib_" + yymmddhhss + ".png"
+    pdf_filename = "bib_" + yymmddhhss + ".pdf"
 
-    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpdf -n2 -o bib.pdf"], shell=True)
+    call(["gvpr -c -f filter.gvpr bib.dot > bib_nice.dot"], shell=True)
+    # create png from bib_nice.dot
+    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpng -n2 -o png_filename"], shell=True)
+    # create pdf from bib_nice.dot
+    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpdf -n2 -o pdf_filename"], shell=True)
