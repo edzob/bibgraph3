@@ -1,7 +1,12 @@
-## bibgraph
+# bibgraph
 
 `bibgraph` builds a citation graph from an _annotated_ bibtex file.
 
+
+[[_TOC_]]
+
+
+## Build a graph
 Bibgraph expects to find the following optional fields:
 
 1. `cites` on every entry to be added to the graph; 
@@ -96,6 +101,6 @@ This produces a `bib.png` and a `bib.pdf` file a the bibliography graph like the
 ![Example bibgraph](/bib.png?raw=true "Example bibgraph")
 
 ## Contributors
-Orginal script - https://github.com/paul-g/bibgraph/
-Orginal python3 script - https://github.com/lissonc/bibgraph3
-Adjustments - 
+- Orginal script - https://github.com/paul-g/bibgraph/
+- Fork into python3 script - https://github.com/lissonc/bibgraph3
+- Fork into minor adjustments - https://github.com/edzob/bibgraph3
