@@ -2,7 +2,7 @@
 
 `bibgraph` builds a citation graph from an _annotated_ bibtex file.
 
-Bibgraph expects to find the following fields:
+Bibgraph expects to find the following optional fields:
 
 1. `cites` on every entry to be added to the graph; 
    this contains a list of (keys of) entries cited by that entry
@@ -15,7 +15,9 @@ Bibgraph expects to find the following fields:
       (i.e. checked all interesting references and 
       works that refer to it and added them to the bibliography graph)
 
-This means you have to add these two fields. _By hand_. 
+This means you have to add these two fields 
+(_By hand_)
+if you want to see a graph.
 
 An example entry for a paper citing `zhang2009fpga` 
 which is `in progress` and `mapped`:
@@ -72,10 +74,18 @@ python3 -m pip freeze| grep networkx;
 ```
 
 ## Helpful hints
+### Bibtex vs BibLaTex
 Bibgraph3 relies on bibtexparser which only supports BibTeX entry types; not the full set available in BibLaTeX. 
 
 For example: @techreport is supported while @report is not. 
 This can be a pain to figure out because it fails silently.
+### Cites
+The script can read bibtex entries without cites, 
+and correctly not put this in a graph.
+
+### Tags
+The script can read bibtex entries without tags.
+
 
 ## Running
 
