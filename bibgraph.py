@@ -84,6 +84,6 @@ if __name__ == '__main__':
 
     call(["gvpr -c -f filter.gvpr bib.dot > bib_nice.dot"], shell=True)
     # create png from bib_nice.dot
-    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpng -n2 -o png_filename"], shell=True)
+    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpng -n2 -o"+png_filename], shell=True)
     # create pdf from bib_nice.dot
-    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpdf -n2 -o pdf_filename"], shell=True)
+    call(["ccomps -x bib_nice.dot | dot | gvpack -array1 | neato -Tpdf -n2 -o"+pdf_filename], shell=True)
